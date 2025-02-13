@@ -17,12 +17,8 @@
             display: inline-block;
             font-weight: bold;
             color: red;
-            animation: glitch 0.5s infinite alternate;
-        }
-        @keyframes glitch {
-            0% { opacity: 1; }
-            50% { opacity: 0; transform: translateX(3px); }
-            100% { opacity: 1; }
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
         }
         .button {
             display: inline-block;
@@ -44,14 +40,23 @@
     <a href="pagina2.html" class="button">Começar</a>
 
     <script>
-        const glitchText = document.getElementById("glitch");
-        const texts = ["X", "Pequena"];
-        let index = 0;
+        window.onload = function () {
+            const glitchText = document.getElementById("glitch");
 
-        setInterval(() => {
-            index = (index + 1) % texts.length;
-            glitchText.textContent = texts[index];
-        }, 500);
+            if (glitchText) {
+                glitchText.addEventListener("mouseover", function () {
+                    console.log("Mouse passou sobre o X"); // Teste no console
+                    glitchText.textContent = "Lilith";
+                });
+
+                glitchText.addEventListener("mouseout", function () {
+                    console.log("Mouse saiu do X"); // Teste no console
+                    glitchText.textContent = "X";
+                });
+            } else {
+                console.log("Elemento não encontrado");
+            }
+        };
     </script>
 </body>
 </html>
