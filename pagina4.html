@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quase Lá...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: black;
+            color: white;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+        .button-container {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+        }
+        .move-btn {
+            position: absolute;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: darkred;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .move-btn:hover {
+            background-color: red;
+        }
+        .quit-btn {
+            margin-top: 50px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: gray;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .quit-btn:hover {
+            background-color: darkgray;
+        }
+        /* Botão Secreto - Estrela Pequena ✦ */
+        .hidden-btn {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: transparent;
+            color: white;
+            font-size: 12px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .hidden-btn:hover {
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Quase lá... Só mais um passo!</h1>
+
+    <div class="button-container">
+        <button id="moveButton" class="move-btn" onmouseover="moveButton()">Continuar</button>
+    </div>
+
+    <button class="quit-btn" onclick="window.location.href='index.html'">Desistir</button>
+
+    <!-- Botão secreto: Estrela Pequena ✦ -->
+    <button class="hidden-btn" onclick="window.location.href='pagina5.html'">✦</button>
+
+    <script>
+        function moveButton() {
+            const button = document.getElementById("moveButton");
+            const maxX = window.innerWidth - button.clientWidth - 20;
+            const maxY = window.innerHeight - button.clientHeight - 20;
+
+            const newX = Math.floor(Math.random() * maxX);
+            const newY = Math.floor(Math.random() * maxY);
+
+            button.style.left = newX + "px";
+            button.style.top = newY + "px";
+        }
+    </script>
+
+</body>
+</html>
