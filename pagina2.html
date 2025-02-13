@@ -3,10 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 2</title>
+    <title>Caminho para a Verdade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: black;
+            color: white;
+        }
+        h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+        .question {
+            font-size: 1.5em;
+            margin: 20px;
+        }
+        .input-box {
+            font-size: 1.2em;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            border: 2px solid white;
+            background-color: black;
+            color: white;
+            margin-top: 10px;
+        }
+        .submit-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: darkred;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: red;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bem-vindo à segunda página!</h1>
-    <a href="index.html">Voltar</a>
+    <h1>Caminho para a Verdade</h1>
+
+    <p class="question">A chave para continuar está oculta na sua mente. Decifre o código e avance.</p>
+
+    <input type="text" id="answer" class="input-box" placeholder="Digite a senha">
+    <button class="submit-btn" onclick="checkPassword()">Enviar</button>
+
+    <p id="message"></p>
+
+    <script>
+        function checkPassword() {
+            const answer = document.getElementById("answer").value.trim().toLowerCase();
+            const correctAnswer = "10/02"; // A senha correta
+
+            if (answer === correctAnswer) {
+                document.getElementById("message").style.color = "green";
+                document.getElementById("message").textContent = "Correto! A verdade se revela.";
+                document.getElementById("message").style.display = "block";
+
+                // Redireciona para a página 3 após 2 segundos
+                setTimeout(() => window.location.href = "pagina3.html", 2000);
+            } else {
+                document.getElementById("message").style.color = "red";
+                document.getElementById("message").textContent = "Errado... pense no código.";
+                document.getElementById("message").style.display = "block";
+                setTimeout(() => location.reload(), 2000);
+            }
+        }
+    </script>
 </body>
 </html>
