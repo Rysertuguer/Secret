@@ -13,6 +13,17 @@
         h1 {
             font-size: 3em;
         }
+        .glitch {
+            display: inline-block;
+            font-weight: bold;
+            color: red;
+            animation: glitch 0.5s infinite alternate;
+        }
+        @keyframes glitch {
+            0% { opacity: 1; }
+            50% { opacity: 0; transform: translateX(3px); }
+            100% { opacity: 1; }
+        }
         .button {
             display: inline-block;
             padding: 15px 30px;
@@ -21,6 +32,7 @@
             background-color: blue;
             text-decoration: none;
             border-radius: 10px;
+            margin-top: 20px;
         }
         .button:hover {
             background-color: darkblue;
@@ -28,7 +40,18 @@
     </style>
 </head>
 <body>
-    <h1>Project X</h1>
+    <h1>Project <span id="glitch" class="glitch">X</span></h1>
     <a href="pagina2.html" class="button">Começar</a>
+
+    <script>
+        const glitchText = document.getElementById("glitch");
+        const texts = ["X", "Pequena"];
+        let index = 0;
+
+        setInterval(() => {
+            index = (index + 1) % texts.length;
+            glitchText.textContent = texts[index];
+        }, 500);
+    </script>
 </body>
 </html>
